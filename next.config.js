@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/z-com",
+  basePath: "https://bae-jaekwan.github.io/z-com",
 };
 
 module.exports = nextConfig;
