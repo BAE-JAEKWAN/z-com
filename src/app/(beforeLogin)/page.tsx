@@ -1,9 +1,9 @@
-import styles from "@/app/(beforeLogin)/_component/main.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import zLogo from "../../public/zlogo.png";
+import styles from '@/app/(beforeLogin)/_component/main.module.css'
+import Image from 'next/image'
+import Link from 'next/link'
+import zLogo from '../../../public/zlogo.png'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <div className={styles.left}>
@@ -21,5 +21,7 @@ export default function Home() {
         </Link>
       </div>
     </>
-  );
+  )
 }
+
+export default Home
