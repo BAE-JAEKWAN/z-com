@@ -8,9 +8,10 @@ type Props = {
 const Layout = ({ children, modal }: Props) => {
   return (
     <>
-      <div>비포 레이아웃</div>
       <div className={styles.container}>
-        {children} {modal}
+        <div>비포 레이아웃</div>
+        {children}
+        {modal}
       </div>
     </>
   )

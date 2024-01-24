@@ -3,7 +3,7 @@ import SignupModal from '@/app/(beforeLogin)/_component/SignupModal'
 const Signup = () => {
   return (
     <>
-      src/app/(beforeLogin)/i/flow/signup/page.tsx
+      src/app/(beforeLogin)/@modal/(.)i/flow/signup/page.tsx
       <SignupModal />
     </>
   )
