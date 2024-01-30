@@ -1,6 +1,6 @@
-import Link from "next/link";
-import style from './trend.module.css';
-export default function Trend() {
+import Link from 'next/link'
+import style from './trend.module.css'
+const Trend = ({ trend }: { trend?: any }) => {
   return (
     <Link href={`/search?q=트렌드`} className={style.container}>
       <div className={style.count}>실시간트렌드</div>
@@ -9,3 +9,5 @@ export default function Trend() {
     </Link>
   )
 }
+
+export default Trend

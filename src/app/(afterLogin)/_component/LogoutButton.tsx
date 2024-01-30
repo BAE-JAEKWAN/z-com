@@ -1,20 +1,21 @@
-"use client"
+'use client'
 
-import style from "./logoutButton.module.css";
+import style from './logoutButton.module.css'
 
-export default function LogoutButton() {
-  const me = { // 임시로 내 정보 있는것처럼
-    id: 'zerohch0',
-    nickname: '제로초',
+const LogoutButton = () => {
+  const me = {
+    // 여기도 나중에 next auth로 대체한다.
+    id: 'neo.quan',
+    nickname: '네오',
     image: '/5Udwvqim.jpg',
   }
 
-  const onLogout = () => {};
+  const onLogout = () => {}
 
   return (
     <button className={style.logOutButton} onClick={onLogout}>
       <div className={style.logOutUserImage}>
-        <img src={me.image} alt={me.id}/>
+        <img src={me.image} alt={me.id} />
       </div>
       <div className={style.logOutUserName}>
         <div>{me.nickname}</div>
@@ -23,3 +24,5 @@ export default function LogoutButton() {
     </button>
   )
 }
+
+export default LogoutButton

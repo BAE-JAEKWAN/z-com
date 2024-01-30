@@ -1,10 +1,30 @@
-import Image from 'next/image'
-import styles from '@/app/page.module.css'
+import styles from './home.module.css'
+import Tab from '@/app/(afterLogin)/home/_component/Tab'
+import TabProvider from '@/app/(afterLogin)/home/_component/TabProvider'
+import PostForm from '@/app/(afterLogin)/home/_component/PostForm'
+import Post from '@/app/(afterLogin)/_component/Post'
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>여기는 홈이다아아아아</div>
-    </main>
+    <div className={styles.main}>
+      <TabProvider>
+        <Tab />
+        <PostForm />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+      </TabProvider>
+    </div>
   )
 }
+
+export default Home

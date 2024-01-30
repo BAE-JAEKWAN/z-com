@@ -1,15 +1,16 @@
-"use client"
+'use client'
 
-import style from './followRecommend.module.css';
+import { deflate } from 'zlib'
+import style from './followRecommend.module.css'
 
-export default function FollowRecommend() {
-  const onFollow = () => {};
+const FollowRecommend = () => {
+  const onFollow = () => {}
 
   const user = {
-    id: 'elonmusk',
-    nickname: 'Elon Musk',
-    image: '/yRsRRjGO.jpg'
-  };
+    id: 'neo.quan',
+    nickname: '네오',
+    image: '/5Udwvqim.jpg',
+  }
 
   return (
     <div className={style.container}>
@@ -28,3 +29,5 @@ export default function FollowRecommend() {
     </div>
   )
 }
+
+export default FollowRecommend

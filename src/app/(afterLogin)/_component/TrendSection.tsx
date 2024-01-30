@@ -1,7 +1,13 @@
-import style from './trendSection.module.css';
-import Trend from "@/app/(afterLogin)/_component/Trend";
+'use client'
 
-export default function TrendSection() {
+import { usePathname } from 'next/navigation'
+import style from './trendSection.module.css'
+import Trend from '@/app/(afterLogin)/_component/Trend'
+
+const TrendSection = () => {
+  const pathname = usePathname()
+  if (pathname === '/explore') return null
+
   return (
     <div className={style.trendBg}>
       <div className={style.trend}>
@@ -20,3 +26,5 @@ export default function TrendSection() {
     </div>
   )
 }
+
+export default TrendSection
