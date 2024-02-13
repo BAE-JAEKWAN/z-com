@@ -44,22 +44,56 @@ const PostImages = ({ post }: Props) => {
 
   return (
     <div className={cx(style.postImageSection, ImageStyleClass())}>
-      {post.Images.slice(0, 4).map((image: ImagesType, index: number) => (
-        <Link
-          href={`/${post.User.id}/status/${post.postId}/photo/${image.imageId}`}
-          style={
-            post.Images.length > 1
-              ? {
-                  backgroundImage: `url(${image?.link})`,
-                  backgroundSize: 'cover',
+      {post.Images.length !== 3 &&
+        post.Images.slice(0, 4).map((image: ImagesType, index: number) => (
+          <Link
+            href={`/${post.User.id}/status/${post.postId}/photo/${image.imageId}`}
+            style={
+              post.Images.length > 1
+                ? {
+                    backgroundImage: `url(${image?.link})`,
+                    backgroundSize: 'cover',
+                  }
+                : undefined
+            }
+            key={index}
+          >
+            {post.Images.length === 1 && <img src={image?.link} alt="" />}
+          </Link>
+        ))}
+      {post.Images.length === 3 && (
+        <>
+          <Link
+            href={`/${post.User.id}/status/${post.postId}/photo/${post.Images[0].imageId}`}
+            style={
+              post.Images.length > 1
+                ? {
+                    backgroundImage: `url(${post.Images[0]?.link})`,
+                    backgroundSize: 'cover',
+                  }
+                : undefined
+            }
+          ></Link>
+          <div>
+            {post.Images.slice(1, 3).map((image: ImagesType, index: number) => (
+              <Link
+                href={`/${post.User.id}/status/${post.postId}/photo/${image.imageId}`}
+                style={
+                  post.Images.length > 1
+                    ? {
+                        backgroundImage: `url(${image?.link})`,
+                        backgroundSize: 'cover',
+                      }
+                    : undefined
                 }
-              : undefined
-          }
-          key={index}
-        >
-          {post.Images.length === 1 && <img src={image?.link} alt="" />}
-        </Link>
-      ))}
+                key={index}
+              >
+                {post.Images.length === 1 && <img src={image?.link} alt="" />}
+              </Link>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   )
 }

@@ -23,14 +23,12 @@ const showMessage = (message: string | null) => {
     case 'user_exists':
       return '이미 사용 중인 아이디입니다.'
   }
-
   return ''
 }
 
 const SignupModal = () => {
   const [state, formAction] = useFormState(onSubmit, { message: null })
   const { pending } = useFormStatus()
-  console.log('state', state)
 
   return (
     <>

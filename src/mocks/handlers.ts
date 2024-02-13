@@ -10,7 +10,7 @@ function generateDate() {
   })
 }
 const User = [
-  { id: 'neo.quan', nickname: '네오', image: faker.image.avatar() },
+  { id: 'neo', nickname: 'neo', image: faker.image.avatar() },
   { id: 'elonmusk', nickname: 'Elon Musk', image: '/yRsRRjGO.jpg' },
   { id: 'zerohch0', nickname: '제로초', image: '/5Udwvqim.jpg' },
 ]
@@ -23,7 +23,7 @@ const delay = (ms: number) =>
 export const handlers = [
   http.post('/api/login', () => {
     console.log('로그인')
-    return HttpResponse.json(User[1], {
+    return HttpResponse.json(User[0], {
       headers: {
         'Set-Cookie': 'connect.sid=msw-cookie;HttpOnly;Path=/',
       },
