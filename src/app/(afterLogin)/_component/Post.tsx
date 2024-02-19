@@ -6,30 +6,22 @@ import 'dayjs/locale/ko'
 import ActionButtons from '@/app/(afterLogin)/_component/ActionButtons'
 import PostArticle from './PostArticle'
 import PostImages, { ImagesType } from './PostImages'
+import { Post } from '@/model/Post'
 import { faker } from '@faker-js/faker'
 
 dayjs.locale('ko')
 dayjs.extend(relativeTime)
+
 type Props = {
   noImage?: boolean
+  post: Post
 }
 
-const Post = ({ noImage }: Props) => {
-  const target = {
-    postId: 1,
-    User: {
-      id: 'neo.quan',
-      nickname: '네오',
-      image: '/5Udwvqim.jpg',
-    },
-    content: '언젠가 화성 갈끄니까아~',
-    createdAt: new Date(),
-    Images: [] as ImagesType[],
-  }
-
+const Post = ({ noImage, post }: Props) => {
+  const target = post
   if (Math.random() > 0.5 && !noImage) {
     target.Images.push(
-      // { imageId: 1, link: faker.image.urlLoremFlickr() },
+      { imageId: 1, link: faker.image.urlLoremFlickr() },
       { imageId: 2, link: faker.image.urlLoremFlickr() },
       { imageId: 3, link: faker.image.urlLoremFlickr() },
       { imageId: 4, link: faker.image.urlLoremFlickr() }
@@ -61,7 +53,6 @@ const Post = ({ noImage }: Props) => {
           <div>
             <PostImages post={target} />
           </div>
-          <div className={style.postImageSection}></div>
           <ActionButtons />
         </div>
       </div>

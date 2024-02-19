@@ -1,11 +1,12 @@
 'use client'
+import { TabContext } from './TabProvider'
 import style from './tab.module.css'
-import { useState } from 'react'
+import { useContext } from 'react'
 
 const Tab = () => {
-  const [tab, setTab] = useState('rec')
+  const { tab, setTab } = useContext(TabContext)
 
-  const onClickHandler = (value: string) => {
+  const onClickHandler = (value: 'rec' | 'fol') => {
     setTab(value)
   }
 
