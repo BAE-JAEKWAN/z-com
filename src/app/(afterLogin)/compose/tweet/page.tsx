@@ -1,8 +1,13 @@
-import React from 'react'
-import Home from '../../home/page'
+import Home from "@/app/(afterLogin)/home/page";
+import TweetModal from "@/app/(afterLogin)/@modal/(.)compose/tweet/page";
 
-const page = () => {
-  return <Home />
-}
+const Page = () => {
+  return (
+    <>
+      <Home />
+      <TweetModal />
+    </>
+  );
+};
 
-export default page
+export default Page;
