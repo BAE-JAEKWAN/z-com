@@ -1,50 +1,21 @@
-import styles from './home.module.css'
-import Tab from '@/app/(afterLogin)/home/_component/Tab'
-import TabProvider from '@/app/(afterLogin)/home/_component/TabProvider'
-import PostForm from '@/app/(afterLogin)/home/_component/PostForm'
-import {
-  HydrationBoundary,
-  QueryClient,
-  dehydrate,
-} from '@tanstack/react-query'
-import PostRecommends from './_component/PostRecommends'
-import TabDecider from './_component/TabDecider'
+import style from "./home.module.css";
+import Tab from "@/app/(afterLogin)/home/_component/Tab";
+import TabProvider from "@/app/(afterLogin)/home/_component/TabProvider";
+import PostForm from "@/app/(afterLogin)/home/_component/PostForm";
+import { Suspense } from "react";
+import Loading from "@/app/(afterLogin)/home/loading";
+import TabDeciderSuspense from "@/app/(afterLogin)/home/_component/TabDeciderSuspense";
 
-const getPostRecommends = async () => {
-  const res = await fetch(`http://localhost:9090/api/postRecommends`, {
-    next: {
-      tags: ['posts', 'recommends'],
-    },
-    cache: 'no-store',
-  })
-
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-
-  return res.json()
-}
-
-const Home = async () => {
-  const queryClient = new QueryClient()
-  await queryClient.prefetchQuery({
-    queryKey: ['posts', 'recommends'],
-    queryFn: getPostRecommends,
-  })
-  const dehydratedState = dehydrate(queryClient)
-  queryClient.getQueryData(['posts', 'recommends'])
-
+export default async function Home() {
   return (
-    <div className={styles.main}>
-      <HydrationBoundary state={dehydratedState}>
-        <TabProvider>
-          <Tab />
-          <PostForm />
-          <TabDecider />
-        </TabProvider>
-      </HydrationBoundary>
-    </div>
-  )
+    <main className={style.main}>
+      <TabProvider>
+        <Tab />
+        <PostForm />
+        <Suspense fallback={<Loading />}>
+          <TabDeciderSuspense />
+        </Suspense>
+      </TabProvider>
+    </main>
+  );
 }
-
-export default Home
