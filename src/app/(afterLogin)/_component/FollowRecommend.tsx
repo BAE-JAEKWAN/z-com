@@ -1,16 +1,14 @@
-'use client'
+"use client";
 
-import { deflate } from 'zlib'
-import style from './followRecommend.module.css'
+import style from "./followRecommend.module.css";
+import { User } from "@/model/User";
 
-const FollowRecommend = () => {
-  const onFollow = () => {}
+type Props = {
+  user: User;
+};
 
-  const user = {
-    id: 'neo.quan',
-    nickname: '네오',
-    image: '/5Udwvqim.jpg',
-  }
+const FollowRecommend = ({ user }: Props) => {
+  const onFollow = () => {};
 
   return (
     <div className={style.container}>
@@ -27,7 +25,7 @@ const FollowRecommend = () => {
         <button onClick={onFollow}>팔로우</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FollowRecommend
+export default FollowRecommend;
